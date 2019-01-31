@@ -1,28 +1,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Paper from '@material-ui/core/Paper';
+import { Button } from '@material-ui/core';
+import withStyles from '@material-ui/core/styles/withStyles';
 
-class App extends Component {
-  render() {
+const styles = (theme: any) => ({
+    root: {
+        ...theme.mixins.gutters(),
+        paddingBottom: theme.spacing.unit * 2,
+        marginTop: 30,
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    button: {
+    },
+});
+
+const App = (props: any) => {
+    const {classes} = props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+        <div className="App">
+            <Paper className={classes.root} elevation={1}>
+                <div className='heading'>
+                    <h1>Refact</h1>
+                    <img src={logo} className="App-logo" alt="logo"/>
+                </div>
 
-export default App;
+                <p>Test your react knowledge!</p>
+
+                <Button>Take Test</Button>
+
+            </Paper>
+
+
+        </div>
+    );
+};
+
+
+export default withStyles(styles)(App);

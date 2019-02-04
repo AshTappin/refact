@@ -18,16 +18,12 @@ const styles = (theme: any) => ({
 const Home = (props: any) => {
     return (
         <div>
-
-                <p>Test your react knowledge!</p>
-
                 <Button
                     className='TakeQuizButton'
                     variant='contained'
                     color='primary'
-                    style={{alignSelf: 'flex-end'}}
                     onClick={() => props.history.push('/question')}
-                >Take Test</Button>
+                >Test your React Knowledge</Button>
         </div>
     );
 }

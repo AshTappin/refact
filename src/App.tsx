@@ -7,6 +7,7 @@ import NotFound from './components/NotFound/NotFound';
 import logo from './logo.svg';
 import { Paper } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
+import FinalScore from './components/FinalScore/FinalScore';
 
 const styles = (theme: any) => ({
     root: {
@@ -32,6 +33,7 @@ const App = (props: any) => {
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/question' component={Question}/>
+                    <Route exact path='/finalScore' component={FinalScore}/>
                     <NotFound/>
                 </Switch>
                 </Paper>

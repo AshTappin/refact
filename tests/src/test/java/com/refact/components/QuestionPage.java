@@ -17,4 +17,8 @@ public class QuestionPage extends Page {
     public AnswerChoices answers() {
         return new AnswerChoices(By.className("AnswerChoices"), this);
     }
+
+    public SelenideWidget submitAnswerButton() {
+        return new SelenideWidget(By.className("SubmitAnswerButton"), this);
+    }
 }

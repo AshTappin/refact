@@ -2,3 +2,12 @@
     display: flex;
     flex-direction: column;
 }
+
+.QuestionFooter {
+    display: flex;
+    justify-items: center;
+}
+
+.RightAnswer {
+    background-color: rgb(75,181, 67, 0.4);
+}

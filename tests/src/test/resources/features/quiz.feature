@@ -11,6 +11,10 @@ Feature: Quiz
       | history           |
       | none of the above |
 
+  Scenario: Gives immediate feedback on correct answer
+    When I start to take the quiz
+    And I answer 'props' to 'What can you use to pass data into a component?'
+    Then I am notified that I got the correct answer
 
   Scenario: Get all answers correct results in 100% score
     When I start to take the quiz

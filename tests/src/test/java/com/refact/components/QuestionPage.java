@@ -21,4 +21,13 @@ public class QuestionPage extends Page {
     public SelenideWidget submitAnswerButton() {
         return new SelenideWidget(By.className("SubmitAnswerButton"), this);
     }
+
+    public void selectAnswer(String answer) {
+        AnswerChoice answerToSelect = this.answers().findFirst(answerChoice -> answer.equals(answerChoice.getStringValue()));
+        answerToSelect.click();
+    }
+
+    public SelenideWidget successNotification() {
+        return new SelenideWidget(By.className("Success"), this);
+    }
 }

@@ -4,6 +4,7 @@ import com.refact.components.AnswerChoice;
 import com.refact.components.FinalScorePage;
 import com.refact.components.HomePage;
 import com.refact.components.QuestionPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -32,9 +33,8 @@ public class QuizSteps {
         questionsAndAnswers.forEach(questionAndAnswer -> {
             String question = questionAndAnswer.get("question");
             String answer = questionAndAnswer.get("answer");
-
-            AnswerChoice answerToSelect = questionPage.answers().findFirst(answerChoice -> answer.equals(answerChoice.getStringValue()));
-            answerToSelect.click();
+            questionPage.questionText().matches(question);
+            questionPage.selectAnswer(answer);
             questionPage.submitAnswerButton().click();
         });
     }
@@ -49,5 +49,17 @@ public class QuizSteps {
     @Then("^the final score page will say I scored '([^\"]*)'$")
     public void theFinalScorePageWillSayIScored(String score) {
         finalScorePage.finalScoreText().matches(score);
+    }
+
+    @When("I answer '([^\"]*)' to '([^\"]*)'")
+    public void iAnswerPropsToWhatCanYouUseToPassDataIntoAComponent(String answer, String question) {
+        questionPage.questionText().matches(question);
+        questionPage.selectAnswer(answer);
+        questionPage.submitAnswerButton().click();
+    }
+
+    @Then("^I am notified that I got the correct answer$")
+    public void iAmNotifiedThatIGotTheCorrectAnswer() {
+        questionPage.successNotification().assertVisible();
     }
 }

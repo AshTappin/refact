@@ -10,6 +10,8 @@ import { RouterProps, withRouter } from 'react-router';
 const Question = (props: RouterProps) => {
 
     const [checkedAnswer, setCheckedAnswer] = useState('');
+    const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);
+    const [questionAnswered, setQuestionAnswered] = useState(false);
     const answers = ['state', 'props', 'history', 'none of the above'];
 
     return (
@@ -17,7 +19,7 @@ const Question = (props: RouterProps) => {
             <div className='QuestionText'>What can you use to pass data into a component?</div>
             <List className='AnswerChoices'>
                 {answers.map((answer) => (
-                    <ListItem className='AnswerChoice' button onClick={() => {
+                    <ListItem className='AnswerChoice RightAnswer' button onClick={() => {
                         setCheckedAnswer(answer);
                     }}>
                         <ListItemText primary={answer}/>
@@ -30,13 +32,21 @@ const Question = (props: RouterProps) => {
                         </ListItemSecondaryAction>
                     </ListItem>))}
             </List>
-            <Button
-                style={{marginLeft: 'auto'}}
-                className='SubmitAnswerButton'
-                variant='contained'
-                color='primary'
-                onClick={() => props.history.push('/finalScore')}
-            >Submit Answer</Button>
+
+            <div className='QuestionFooter'>
+                {questionAnsweredCorrectly && <div className='Success'>Correct!</div>}
+                <Button
+                    style={{marginLeft: 'auto'}}
+                    className='SubmitAnswerButton'
+                    variant='contained'
+                    color='primary'
+                    onClick={questionAnswered ? () => props.history.push('/finalScore') : () => {
+                        setQuestionAnswered(true);
+                        setQuestionAnsweredCorrectly(true);
+                    }}
+                >{questionAnswered ? 'Next Question' : 'Submit Answer'}</Button>
+            </div>
+
         </div>
     );
 };

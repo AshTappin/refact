@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Paper from '@material-ui/core/Paper';
-import { Button } from '@material-ui/core';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Question from './components/Question/Question';
+import NotFound from './components/NotFound/NotFound';
+import logo from './logo.svg';
+import { Paper } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = (theme: any) => ({
@@ -12,29 +15,28 @@ const styles = (theme: any) => ({
         marginTop: 30,
         display: 'flex',
         flexDirection: 'column',
-    },
-    button: {
+        justifyContent: 'center',
+        maxWidth: 600
     },
 });
 
 const App = (props: any) => {
-    const {classes} = props;
     return (
-        <div className="App">
-            <Paper className={classes.root} elevation={1}>
-                <div className='heading'>
-                    <h1>Refact</h1>
-                    <img src={logo} className="App-logo" alt="logo"/>
-                </div>
-
-                <p>Test your react knowledge!</p>
-
-                <Button>Take Test</Button>
-
-            </Paper>
-
-
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Paper className={props.classes.root} elevation={1}>
+                    <div className='heading'>
+                        <h1>Refact</h1>
+                        <img src={logo} className="App-logo" alt="logo"/>
+                    </div>
+                <Switch>
+                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/question' component={Question}/>
+                    <NotFound/>
+                </Switch>
+                </Paper>
+            </div>
+        </BrowserRouter>
     );
 };
 

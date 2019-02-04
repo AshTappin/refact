@@ -25,3 +25,9 @@ yarn-error.log*
 .idea/
 
 *.iml
+
+tests/.gradle/*
+tests/build/*
+out
+gradle
+gradlew*

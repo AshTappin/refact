@@ -29,6 +29,11 @@ Feature: Quiz
     Then the final score page will say I scored '100%'
 
   Scenario: Get no answers correct results in 0% score
+    When I start to take the quiz
+    And I give the following answers to the following questions
+      | Question                                        | Answer |
+      | What can you use to pass data into a component? | state  |
+    Then the final score page will say I scored '0%'
 
 
 

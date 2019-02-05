@@ -38,6 +38,3 @@ Feature: Quiz
   Scenario: Cannot submit answer unless answer has been checked
     When I start to take the quiz
     Then I can not submit my answer straight away
-
-
-

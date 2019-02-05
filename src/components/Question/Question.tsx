@@ -30,12 +30,13 @@ const Question = (props: QuestionProps) => {
                 <div className='QuestionText'>What can you use to pass data into a component?</div>
                 <List className='AnswerChoices'>
                     {answers.map((answer) => (
-                        <ListItem key={answer.name} className='AnswerChoice RightAnswer' button onClick={() => {
+                        <ListItem key={answer.name} className='AnswerChoice RightAnswer' button disabled={questionAnswered} onClick={() => {
                             setCheckedAnswer(answer);
                         }}>
                             <ListItemText primary={answer.name}/>
                             <ListItemSecondaryAction>
                                 <Checkbox
+                                    disabled={questionAnswered}
                                     onChange={() => {
                                         setCheckedAnswer(answer);
                                     }}

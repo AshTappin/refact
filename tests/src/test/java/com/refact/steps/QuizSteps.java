@@ -68,4 +68,9 @@ public class QuizSteps {
     public void iAmNotifiedThatIGotTheIncorrectAnswer() {
         questionPage.incorrectNotification().assertVisible();
     }
+
+    @Then("^I can not submit my answer straight away$")
+    public void iCanNotSubmitMyAnswerStraightAway() {
+        questionPage.submitAnswerButton().assertDisabled();
+    }
 }

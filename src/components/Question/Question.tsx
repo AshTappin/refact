@@ -5,7 +5,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import './Question.css';
-import { RouteComponentProps, RouterProps, withRouter } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { Answer } from '../../Interfaces/Answer';
 import { inject, Observer } from 'mobx-react';
 import { QuizStore } from '../../Stores/QuizStore';
@@ -51,6 +51,7 @@ const Question = (props: QuestionProps) => {
                     <div className='Incorrect Notification'>Incorrect! <i className="material-icons">cancel</i></div>}
                     <Button
                         className='SubmitAnswerButton'
+                        disabled={Object.keys(checkedAnswer).length === 0}
                         variant='contained'
                         color='primary'
                         onClick={questionAnswered ? () => props.history.push('/finalScore') : () => {

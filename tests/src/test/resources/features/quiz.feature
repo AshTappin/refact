@@ -35,5 +35,9 @@ Feature: Quiz
       | What can you use to pass data into a component? | state  |
     Then the final score page will say I scored '0%'
 
+  Scenario: Cannot submit answer unless answer has been checked
+    When I start to take the quiz
+    Then I can not submit my answer straight away
+
 
 

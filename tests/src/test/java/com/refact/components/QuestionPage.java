@@ -1,8 +1,6 @@
 package com.refact.components;
 
 import org.openqa.selenium.By;
-import uk.co.blackpepper.relish.core.Component;
-import uk.co.blackpepper.relish.core.Widget;
 import uk.co.blackpepper.relish.selenide.Page;
 import uk.co.blackpepper.relish.selenide.SelenideWidget;
 

@@ -6,13 +6,15 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import './Question.css';
 import { RouterProps, withRouter } from 'react-router';
+import { Answer } from '../../Interfaces/Answer';
 
 const Question = (props: RouterProps) => {
 
-    const [checkedAnswer, setCheckedAnswer] = useState('');
+    const [checkedAnswer, setCheckedAnswer] = useState({} as Answer);
     const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(false);
-    const answers = ['state', 'props', 'history', 'none of the above'];
+    const answers = [
+        {name: 'state'}, {name: 'props', isCorrect: true}, {name: 'history'}, {name: 'none of the above'}] as Answer[];
 
     return (
         <div className='Question'>
@@ -22,26 +24,28 @@ const Question = (props: RouterProps) => {
                     <ListItem className='AnswerChoice RightAnswer' button onClick={() => {
                         setCheckedAnswer(answer);
                     }}>
-                        <ListItemText primary={answer}/>
+                        <ListItemText primary={answer.name}/>
                         <ListItemSecondaryAction>
                             <Checkbox
                                 onChange={() => {
                                     setCheckedAnswer(answer);
                                 }}
-                                checked={checkedAnswer === answer}/>
+                                checked={checkedAnswer.name === answer.name}/>
                         </ListItemSecondaryAction>
                     </ListItem>))}
             </List>
 
             <div className='QuestionFooter'>
-                {questionAnsweredCorrectly && <div className='Success'>Correct! <i className="material-icons">check_circle</i></div>}
+                {questionAnsweredCorrectly && <div className='Success Notification'>Correct! <i className="material-icons">check_circle</i></div>}
+                {(questionAnswered && !questionAnsweredCorrectly) && <div className='Incorrect Notification'>Incorrect! <i className="material-icons">cancel</i></div>}
                 <Button
                     className='SubmitAnswerButton'
                     variant='contained'
                     color='primary'
                     onClick={questionAnswered ? () => props.history.push('/finalScore') : () => {
+
                         setQuestionAnswered(true);
-                        setQuestionAnsweredCorrectly(true);
+                        setQuestionAnsweredCorrectly(checkedAnswer.isCorrect);
                     }}
                 >{questionAnswered ? 'Next Question' : 'Submit Answer'}</Button>
             </div>

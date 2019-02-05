@@ -13,11 +13,19 @@
     background-color: rgb(75,181, 67, 0.4);
 }
 
-.Success {
+
+.Notification {
     flex-grow: 1;
     text-align: center;
-    color: rgb(75,181, 67);
     font-weight: 500;
+}
+
+.Success {
+    color: rgb(75,181, 67);
+}
+
+.Incorrect {
+    color: #D8000C
 }
 
 i {

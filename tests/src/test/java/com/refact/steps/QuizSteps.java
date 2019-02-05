@@ -63,4 +63,9 @@ public class QuizSteps {
     public void iAmNotifiedThatIGotTheCorrectAnswer() {
         questionPage.successNotification().assertVisible();
     }
+
+    @Then("^I am notified that I got the incorrect answer$")
+    public void iAmNotifiedThatIGotTheIncorrectAnswer() {
+        questionPage.incorrectNotification().assertVisible();
+    }
 }

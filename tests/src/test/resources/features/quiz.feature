@@ -26,6 +26,7 @@ Feature: Quiz
     And I give the following answers to the following questions
       | Question                                        | Answer |
       | What can you use to pass data into a component? | props  |
+      | All react components have to be classes.        | false  |
     Then the final score page will say I scored '100%'
 
   Scenario: Get no answers correct results in 0% score
@@ -33,7 +34,16 @@ Feature: Quiz
     And I give the following answers to the following questions
       | Question                                        | Answer |
       | What can you use to pass data into a component? | state  |
+      | All react components have to be classes.        | true   |
     Then the final score page will say I scored '0%'
+
+  Scenario: Get half answers correct and half wrong results in 50% score
+    When I start to take the quiz
+    And I give the following answers to the following questions
+      | Question                                        | Answer |
+      | What can you use to pass data into a component? | state  |
+      | All react components have to be classes.        | false  |
+    Then the final score page will say I scored '50%'
 
   Scenario: Cannot submit answer unless answer has been checked
     When I start to take the quiz

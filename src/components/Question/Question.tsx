@@ -20,58 +20,72 @@ const Question = (props: QuestionProps) => {
     const [checkedAnswer, setCheckedAnswer] = useState({} as Answer);
     const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(false);
-    const answers = [
-        {name: 'state'}, {name: 'props', isCorrect: true}, {name: 'history'}, {name: 'none of the above'}] as Answer[];
 
     return (
+        <Observer>{() => {
+            const {quizStore} = props;
+            const questionAndAnswers = props.quizStore.getCurrentQuestion();
+            const answers = questionAndAnswers.answers;
 
-        <Observer>{() =>
-            <div className='Question'>
-                <div className='QuestionText'>What can you use to pass data into a component?</div>
-                <List className='AnswerChoices'>
-                    {answers.map((answer) => (
-                        <ListItem key={answer.name} className='AnswerChoice RightAnswer' button disabled={questionAnswered} onClick={() => {
-                            setCheckedAnswer(answer);
-                        }}>
-                            <ListItemText primary={answer.name}/>
-                            <ListItemSecondaryAction>
-                                <Checkbox
-                                    disabled={questionAnswered}
-                                    onChange={() => {
-                                        setCheckedAnswer(answer);
-                                    }}
-                                    checked={checkedAnswer.name === answer.name}/>
-                            </ListItemSecondaryAction>
-                        </ListItem>))}
-                </List>
+            return (
+                <div className='Question'>
+                    <div className='QuestionText'>{questionAndAnswers.question}</div>
+                    <List className='AnswerChoices'>
+                        {answers.map((answer) => (
+                            <ListItem key={answer.name} className='AnswerChoice RightAnswer' button
+                                      disabled={questionAnswered} onClick={() => {
+                                setCheckedAnswer(answer);
+                            }}>
+                                <ListItemText primary={answer.name}/>
+                                <ListItemSecondaryAction>
+                                    <Checkbox
+                                        disabled={questionAnswered}
+                                        onChange={() => {
+                                            setCheckedAnswer(answer);
+                                        }}
+                                        checked={checkedAnswer.name === answer.name}/>
+                                </ListItemSecondaryAction>
+                            </ListItem>))}
+                    </List>
 
-                <div className='QuestionFooter'>
-                    {questionAnsweredCorrectly &&
-                    <div className='Success Notification'>Correct! <i className="material-icons">check_circle</i></div>}
-                    {(questionAnswered && !questionAnsweredCorrectly) &&
-                    <div className='Incorrect Notification'>Incorrect! <i className="material-icons">cancel</i></div>}
-                    <Button
-                        className='SubmitAnswerButton'
-                        disabled={Object.keys(checkedAnswer).length === 0}
-                        variant='contained'
-                        color='primary'
-                        onClick={questionAnswered ? () => props.history.push('/finalScore') : () => {
+                    <div className='QuestionFooter'>
+                        {questionAnsweredCorrectly &&
+                        <div className='Success Notification'>Correct! <i className="material-icons">check_circle</i>
+                        </div>}
+                        {(questionAnswered && !questionAnsweredCorrectly) &&
+                        <div className='Incorrect Notification'>Incorrect! <i className="material-icons">cancel</i>
+                        </div>}
+                        <Button
+                            className='SubmitAnswerButton'
+                            disabled={Object.keys(checkedAnswer).length === 0}
+                            variant='contained'
+                            color='primary'
+                            onClick={questionAnswered ? () => {
+                                    if (quizStore.isAtEndOfQuiz()) {
+                                        props.history.push('/finalScore');
+                                    } else {
+                                        quizStore.incrementCurrentQuestion();
+                                        setQuestionAnsweredCorrectly(false);
+                                        setQuestionAnswered(false);
+                                    }
+                                }
+                                : () => {
 
-                            setQuestionAnswered(true);
-                            setQuestionAnsweredCorrectly(checkedAnswer.isCorrect);
+                                    setQuestionAnswered(true);
+                                    setQuestionAnsweredCorrectly(checkedAnswer.isCorrect);
 
-                            if (checkedAnswer.isCorrect) {
-                                props.quizStore.incrementNumberOfRightAnswers();
-                            }
-                        }}
-                    >{questionAnswered ? 'Next Question' : 'Submit Answer'}</Button>
-                </div>
+                                    if (checkedAnswer.isCorrect) {
+                                        quizStore.incrementNumberOfRightAnswers();
+                                    }
+                                }}
+                        >{questionAnswered ? 'Next Question' : 'Submit Answer'}</Button>
+                    </div>
 
-            </div>}
+                </div>)
+        }}
 
         </Observer>
     );
 };
 
 export default inject("quizStore")(withRouter(Question));
-  

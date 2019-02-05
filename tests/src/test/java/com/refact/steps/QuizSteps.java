@@ -36,6 +36,7 @@ public class QuizSteps {
             questionPage.questionText().matches(question);
             questionPage.selectAnswer(answer);
             questionPage.submitAnswerButton().click();
+            questionPage.nextQuestionButton().click();
         });
     }
 

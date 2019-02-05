@@ -5,9 +5,22 @@
 
 .QuestionFooter {
     display: flex;
-    justify-items: center;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .RightAnswer {
     background-color: rgb(75,181, 67, 0.4);
+}
+
+.Success {
+    flex-grow: 1;
+    text-align: center;
+    color: rgb(75,181, 67);
+    font-weight: 500;
+}
+
+i {
+    position: relative;
+    top: 5px;
 }

@@ -34,9 +34,8 @@ const Question = (props: RouterProps) => {
             </List>
 
             <div className='QuestionFooter'>
-                {questionAnsweredCorrectly && <div className='Success'>Correct!</div>}
+                {questionAnsweredCorrectly && <div className='Success'>Correct! <i className="material-icons">check_circle</i></div>}
                 <Button
-                    style={{marginLeft: 'auto'}}
                     className='SubmitAnswerButton'
                     variant='contained'
                     color='primary'

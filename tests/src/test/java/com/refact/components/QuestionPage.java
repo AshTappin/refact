@@ -1,6 +1,7 @@
 package com.refact.components;
 
 import org.openqa.selenium.By;
+import uk.co.blackpepper.relish.core.Widget;
 import uk.co.blackpepper.relish.selenide.Page;
 import uk.co.blackpepper.relish.selenide.SelenideWidget;
 
@@ -29,5 +30,9 @@ public class QuestionPage extends Page {
 
     public SelenideWidget successNotification() {
         return new SelenideWidget(By.className("Success"), this);
+    }
+
+    public SelenideWidget nextQuestionButton() {
+        return new SelenideWidget(By.className("SubmitAnswerButton"), this);
     }
 }

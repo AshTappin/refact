@@ -13,7 +13,7 @@ export class QuizStore {
 
     questionsAndAnswers: QuestionAndAnswers[] = [
         {
-            question: 'What can you use to pass data into a component?',
+            question: 'What can you use to pass data into another component?',
             answers: [
                 {name: 'state', isCorrect: false},
                 {name: 'props', isCorrect: true},

@@ -132,6 +132,12 @@ export class QuizStore {
                 {name: "rendering greeting\nrendering hello\ngreeting component did mount\ngreetingcomponent did update", isCorrect: false},
                 {name: "rendering greeting\nrendering hello", isCorrect: false}
             ]
+        }, {
+            question: 'React is not compatible with Typescript.',
+            answers: [
+                {name: "true", isCorrect: false},
+                {name: "false", isCorrect: true}
+            ]
         }];
 
     public getFinalScore() {

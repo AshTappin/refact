@@ -31,6 +31,7 @@ Feature: Quiz
       | What causes a react component to re-render?                               | When the component's state changes                                |
       | Is the setState() function synchronous or asynchronous?                   | Asynchronous                                                      |
       | When the "Switch Language" button is clicked, what is the console output? | rendering greeting\nrendering hello\ngreetingcomponent did update |
+      | React is not compatible with Typescript.                                  | false                                                             |
     Then the final score page will say I scored '100%'
     And I can not see the quiz progress at the top
 
@@ -44,6 +45,7 @@ Feature: Quiz
       | What causes a react component to re-render?                               | Only after a page refresh                                                                                                                                      |
       | Is the setState() function synchronous or asynchronous?                   | Synchronous                                                                                                                                                    |
       | When the "Switch Language" button is clicked, what is the console output? | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update |
+      | React is not compatible with Typescript.                                  | true                                                             |
     Then the final score page will say I scored '0%'
 #
 #  Scenario: Get half answers correct and half wrong results in 50% score
@@ -60,8 +62,8 @@ Feature: Quiz
 
   Scenario: Quiz question count is shown
     When I start to take the quiz
-    Then I see '1 of 6 questions' at the top
+    Then I see '1 of 7 questions' at the top
     When I give the following answers to the following questions
       | Question                                              | Answer |
       | What can you use to pass data into another component? | props  |
-    Then I see '2 of 6 questions' at the top
+    Then I see '2 of 7 questions' at the top

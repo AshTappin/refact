@@ -1,10 +1,9 @@
 package com.refact.steps;
 
-import com.refact.components.AnswerChoice;
 import com.refact.components.FinalScorePage;
 import com.refact.components.HomePage;
 import com.refact.components.QuestionPage;
-import cucumber.api.java.en.And;
+import com.refact.components.RefactPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,6 +16,7 @@ public class QuizSteps {
     public HomePage homePage = new HomePage();
     public QuestionPage questionPage = new QuestionPage();
     private FinalScorePage finalScorePage = new FinalScorePage();
+    private RefactPage refactPage = new RefactPage();
 
     @Given("^I am on the homepage$")
     public void iAmOnTheHomepage() {
@@ -72,5 +72,15 @@ public class QuizSteps {
     @Then("^I can not submit my answer straight away$")
     public void iCanNotSubmitMyAnswerStraightAway() {
         questionPage.submitAnswerButton().assertDisabled();
+    }
+
+    @Then("^I see '([^\"]*)' at the top$")
+    public void iSeeOfQuestionsAtTheTop(String questionProgressText) {
+        questionPage.questionProgressText().matches(questionProgressText);
+    }
+
+    @Then("^I can not see the quiz progress at the top$")
+    public void iCanNotSeeTheQuizProgressAtTheTop() {
+        refactPage.questionProgressText().assertInvisible();
     }
 }

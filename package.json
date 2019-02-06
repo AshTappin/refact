@@ -37,7 +37,6 @@
   },
   "crcf": [
     "typescript",
-    "proptypes",
     "notest",
     "functional"
   ]

@@ -38,4 +38,8 @@ public class QuestionPage extends Page {
     public SelenideWidget incorrectNotification() {
         return new SelenideWidget(By.className("Incorrect"), this);
     }
+
+    public SelenideWidget questionProgressText() {
+        return new SelenideWidget(By.className("QuestionProgressText"), this);
+    }
 }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button } from '@material-ui/core';
 import { withRouter } from 'react-router';
 import withStyles from '@material-ui/core/styles/withStyles';
+import { inject, Observer } from 'mobx-react';
 
 const styles = (theme: any) => ({
     root: {
@@ -17,16 +18,23 @@ const styles = (theme: any) => ({
 
 const Home = (props: any) => {
     return (
-        <div>
+        <Observer>{() =>(
+            <div>
                 <Button
                     className='TakeQuizButton'
                     variant='contained'
                     color='primary'
-                    onClick={() => props.history.push('/question')}
+                    onClick={() => {
+                        props.quizStore.setQuizInProgress(true);
+                        props.history.push('/question');
+
+                    }}
                 >Test your React Knowledge</Button>
-        </div>
+            </div>)
+        }
+        </Observer>
     );
 }
 
-export default withStyles(styles)(withRouter(Home));
+export default inject('quizStore')(withStyles(styles)(withRouter(Home)));
   

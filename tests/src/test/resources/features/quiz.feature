@@ -28,6 +28,7 @@ Feature: Quiz
       | What can you use to pass data into a component? | props  |
       | All react components have to be classes.        | false  |
     Then the final score page will say I scored '100%'
+    And I can not see the quiz progress at the top
 
   Scenario: Get no answers correct results in 0% score
     When I start to take the quiz
@@ -48,3 +49,11 @@ Feature: Quiz
   Scenario: Cannot submit answer unless answer has been checked
     When I start to take the quiz
     Then I can not submit my answer straight away
+
+  Scenario: Quiz question count is shown
+    When I start to take the quiz
+    Then I see '1 of 2 questions' at the top
+    When I give the following answers to the following questions
+      | Question                                        | Answer |
+      | What can you use to pass data into a component? | props  |
+    Then I see '2 of 2 questions' at the top

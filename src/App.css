@@ -42,6 +42,10 @@ p {
   align-items: center;
 }
 
+.QuestionProgressText {
+  margin-left: auto;
+}
+
 h1 {
   font-weight: 400;
 }

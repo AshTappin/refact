@@ -8,6 +8,8 @@ import logo from './logo.svg';
 import { Paper } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 import FinalScore from './components/FinalScore/FinalScore';
+import QuizProgress from './components/QuizProgress/QuizProgress';
+import { inject } from 'mobx-react';
 
 const styles = (theme: any) => ({
     root: {
@@ -29,6 +31,7 @@ const App = (props: any) => {
                     <div className='heading'>
                         <h1>Refact</h1>
                         <img src={logo} className="App-logo" alt="logo"/>
+                        <QuizProgress/>
                     </div>
                 <Switch>
                     <Route exact path='/' component={Home}/>
@@ -43,4 +46,4 @@ const App = (props: any) => {
 };
 
 
-export default withStyles(styles)(App);
+export default inject('quizStore')(withStyles(styles)(App));

@@ -62,12 +62,14 @@ const Question = (props: QuestionProps) => {
                             color='primary'
                             onClick={questionAnswered ? () => {
                                     if (quizStore.isAtEndOfQuiz()) {
+                                        props.quizStore.setQuizInProgress(false);
                                         props.history.push('/finalScore');
                                     } else {
                                         quizStore.incrementCurrentQuestion();
                                         setQuestionAnsweredCorrectly(false);
                                         setQuestionAnswered(false);
                                     }
+                                    setCheckedAnswer({} as Answer);
                                 }
                                 : () => {
 
@@ -77,10 +79,10 @@ const Question = (props: QuestionProps) => {
                                     if (checkedAnswer.isCorrect) {
                                         quizStore.incrementNumberOfRightAnswers();
                                     }
+
                                 }}
                         >{questionAnswered ? 'Next Question' : 'Submit Answer'}</Button>
                     </div>
-
                 </div>)
         }}
 

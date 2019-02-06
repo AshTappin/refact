@@ -22,6 +22,7 @@ const FinalScore = (props: FinalScoreProps) => {
                     color='primary'
                     onClick={() => {
                         props.quizStore.resetQuiz();
+                        props.quizStore.setQuizInProgress(true);
                         props.history.push('/question');
                     }}
                 >Take Test Again</Button>

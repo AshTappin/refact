@@ -8,6 +8,9 @@ export class QuizStore {
     @observable
     currentQuestionIndex: number = 0;
 
+    @observable
+    quizInProgress: boolean = false;
+
     questionsAndAnswers: QuestionAndAnswers[] = [
         {
             question: 'What can you use to pass data into a component?',
@@ -48,4 +51,10 @@ export class QuizStore {
     public isAtEndOfQuiz(): boolean {
         return (this.currentQuestionIndex + 1) === this.questionsAndAnswers.length
     }
+
+    public setQuizInProgress(isInProgress: boolean) {
+        this.quizInProgress = isInProgress;
+    }
+
+
 }

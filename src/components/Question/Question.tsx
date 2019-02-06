@@ -9,7 +9,8 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { Answer } from '../../Interfaces/Answer';
 import { inject, Observer } from 'mobx-react';
 import { QuizStore } from '../../Stores/QuizStore';
-
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomDark, dark } from 'react-syntax-highlighter/dist/styles/prism';
 
 interface QuestionProps extends RouteComponentProps {
     quizStore: QuizStore
@@ -32,9 +33,8 @@ const Question = (props: QuestionProps) => {
                     {questionAndAnswers.code &&
                     <div>
                         Look at the following code...
-                        <pre>
-                        <code>{questionAndAnswers.code}</code>
-                    </pre></div>
+                        <SyntaxHighlighter language='jsx' showLineNumbers style={atomDark}>{questionAndAnswers.code}</SyntaxHighlighter>
+                    </div>
                     }
 
                     <div className='QuestionText'>{questionAndAnswers.question}</div>

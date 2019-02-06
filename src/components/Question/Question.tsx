@@ -46,7 +46,7 @@ const Question = (props: QuestionProps) => {
                                       disabled={questionAnswered} onClick={() => {
                                 setCheckedAnswer(answer);
                             }}>
-                                <ListItemText primary={answer.name}/>
+                                <ListItemText primary={answer.name} style={{whiteSpace: 'pre-wrap'}}/>
                                 <ListItemSecondaryAction>
                                     <Checkbox
                                         disabled={questionAnswered}

@@ -58,9 +58,9 @@ export class QuizStore {
             answers: [
                 {name: '"Hello Spock" is displayed', isCorrect: false},
                 {name: '"Hallo Spock" is displayed', isCorrect: false},
-                {name: 'The component cannot render successfully', isCorrect: true},
                 {name: '"Hallo null" is displayed', isCorrect: false},
                 {name: '"Hallo undefined" is displayed', isCorrect: false},
+                {name: 'The component cannot render successfully', isCorrect: true},
             ]
         }, {
             question: "What causes a react component to re-render?",
@@ -74,6 +74,63 @@ export class QuizStore {
             answers: [
                 {name: 'Synchronous', isCorrect: false},
                 {name: 'Asynchronous', isCorrect: true},
+            ]
+        }, {
+            question: "When the \"Switch Language\" button is clicked, what is the console output?",
+            code: "import React from \"react\";\n" +
+                "\n" +
+                "class Greeting extends React.Component {\n" +
+                "\n" +
+                "    constructor(props) {\n" +
+                "        super(props);\n" +
+                "        this.state = {};\n" +
+                "        console.log('Constructing Greeting component');\n" +
+                "    }\n" +
+                "\n" +
+                "    componentDidMount() {\n" +
+                "        console.log('greeting component did mount');\n" +
+                "    }\n" +
+                "\n" +
+                "    componentDidUpdate() {\n" +
+                "        console.log('greeting component did update');\n" +
+                "    }\n" +
+                "\n" +
+                "    render() {\n" +
+                "        console.log('rendering greeting');\n" +
+                "        return (\n" +
+                "            <div>\n" +
+                "                <Hello inGerman={this.state.inGerman}/>\n" +
+                "                <button onClick={() => {\n" +
+                "                   this.setState((prevState) => ({inGerman: !prevState.inGerman}));\n" +
+                "                }}>Switch Language</button>\n" +
+                "            </div>);\n" +
+                "    }\n" +
+                "}\n" +
+                "\n" +
+                "class Hello extends React.Component {\n" +
+                "\n" +
+                "    constructor(props) {\n" +
+                "        super(props);\n" +
+                "        this.state = {};\n" +
+                "        console.log('Constructing Hello component');\n" +
+                "    }\n" +
+                "\n" +
+                "    render() {\n" +
+                "        console.log('rendering hello');\n" +
+                "        return (\n" +
+                "            <div>\n" +
+                "                {this.props.inGerman ? 'Hallo' : 'Hello'}\n" +
+                "            </div>);\n" +
+                "    }\n" +
+                "}\n" +
+                "\n" +
+                "\n" +
+                "export default Greeting;",
+            answers: [
+                {name: "rendering greeting\nrendering hello\ngreetingcomponent did update", isCorrect: true},
+                {name: "Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update", isCorrect: false},
+                {name: "rendering greeting\nrendering hello\ngreeting component did mount\ngreetingcomponent did update", isCorrect: false},
+                {name: "rendering greeting\nrendering hello", isCorrect: false}
             ]
         }];
 

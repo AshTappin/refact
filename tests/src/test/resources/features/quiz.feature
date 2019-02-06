@@ -28,6 +28,7 @@ Feature: Quiz
       | What can you use to pass data into another component?         | props                                    |
       | All react components have to be classes.                      | false                                    |
       | When the Greeting component is rendered, what is the outcome? | The component cannot render successfully |
+      | What causes a react component to re-render?                   | When the component's state changes       |
     Then the final score page will say I scored '100%'
     And I can not see the quiz progress at the top
 
@@ -38,6 +39,7 @@ Feature: Quiz
       | What can you use to pass data into another component?         | state                     |
       | All react components have to be classes.                      | true                      |
       | When the Greeting component is rendered, what is the outcome? | "Hallo null" is displayed |
+      | What causes a react component to re-render?                   | Only after a page refresh |
     Then the final score page will say I scored '0%'
 #
 #  Scenario: Get half answers correct and half wrong results in 50% score
@@ -54,8 +56,8 @@ Feature: Quiz
 
   Scenario: Quiz question count is shown
     When I start to take the quiz
-    Then I see '1 of 3 questions' at the top
+    Then I see '1 of 4 questions' at the top
     When I give the following answers to the following questions
       | Question                                              | Answer |
       | What can you use to pass data into another component? | props  |
-    Then I see '2 of 3 questions' at the top
+    Then I see '2 of 4 questions' at the top

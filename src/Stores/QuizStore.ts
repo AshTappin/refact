@@ -62,6 +62,13 @@ export class QuizStore {
                 {name: '"Hallo null" is displayed', isCorrect: false},
                 {name: '"Hallo undefined" is displayed', isCorrect: false},
             ]
+        }, {
+            question: "What causes a react component to re-render?",
+            answers: [
+                {name: 'When any variable in the component changes', isCorrect: false},
+                {name: 'Only after a page refresh ', isCorrect: false},
+                {name: 'When the component\'s state changes', isCorrect: true},
+            ]
         }];
 
     public getFinalScore() {

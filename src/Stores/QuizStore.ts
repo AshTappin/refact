@@ -128,8 +128,14 @@ export class QuizStore {
                 "export default Greeting;",
             answers: [
                 {name: "rendering greeting\nrendering hello\ngreetingcomponent did update", isCorrect: true},
-                {name: "Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update", isCorrect: false},
-                {name: "rendering greeting\nrendering hello\ngreeting component did mount\ngreetingcomponent did update", isCorrect: false},
+                {
+                    name: "Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update",
+                    isCorrect: false
+                },
+                {
+                    name: "rendering greeting\nrendering hello\ngreeting component did mount\ngreetingcomponent did update",
+                    isCorrect: false
+                },
                 {name: "rendering greeting\nrendering hello", isCorrect: false}
             ]
         }, {
@@ -137,6 +143,13 @@ export class QuizStore {
             answers: [
                 {name: "true", isCorrect: false},
                 {name: "false", isCorrect: true}
+            ]
+        }, {
+            question: 'What can be used to modify state of a function component?',
+            answers: [
+                {name: 'You can\'t because function components are stateless', isCorrect: false},
+                {name: 'this.setState()', isCorrect: false},
+                {name: 'Hooks', isCorrect: true},
             ]
         }];
 

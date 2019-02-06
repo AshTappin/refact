@@ -69,6 +69,12 @@ export class QuizStore {
                 {name: 'Only after a page refresh ', isCorrect: false},
                 {name: 'When the component\'s state changes', isCorrect: true},
             ]
+        }, {
+            question: "Is the setState() function synchronous or asynchronous?",
+            answers: [
+                {name: 'Synchronous', isCorrect: false},
+                {name: 'Asynchronous', isCorrect: true},
+            ]
         }];
 
     public getFinalScore() {

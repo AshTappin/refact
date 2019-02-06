@@ -25,6 +25,43 @@ export class QuizStore {
                 {name: 'true', isCorrect: false},
                 {name: 'false', isCorrect: true}
             ]
+        }, {
+            question: 'When the Greeting component is rendered, what is the outcome?',
+            code: "import React from \"react\";\n" +
+                "\n" +
+                "class Greeting extends React.Component {\n" +
+                "    componentDidMount() {\n" +
+                "        this.setState({user: 'Spock'});\n" +
+                "    }\n" +
+                "\n" +
+                "    render() {\n" +
+                "        return (\n" +
+                "            <div>\n" +
+                "                <Hello inGerman={true}/>\n" +
+                "            </div>);\n" +
+                "    }\n" +
+                "}\n" +
+                "\n" +
+                "class Hello extends React.Component {\n" +
+                "    render() {\n" +
+                "        return (\n" +
+                "            <div>\n" +
+                "                {this.props.inGerman " +
+                "\n                  ? `Hallo ${this.state.user}` " +
+                "\n                  : `Hello ${this.state.user}`}\n" +
+                "            </div>);\n" +
+                "    }\n" +
+                "}\n" +
+                "\n" +
+                "\n" +
+                "export default Greeting;",
+            answers: [
+                {name: '"Hello Spock" is displayed', isCorrect: false},
+                {name: '"Hallo Spock" is displayed', isCorrect: false},
+                {name: 'The component cannot render successfully', isCorrect: true},
+                {name: '"Hallo null" is displayed', isCorrect: false},
+                {name: '"Hallo undefined" is displayed', isCorrect: false},
+            ]
         }];
 
     public getFinalScore() {

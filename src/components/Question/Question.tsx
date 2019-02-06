@@ -29,7 +29,17 @@ const Question = (props: QuestionProps) => {
 
             return (
                 <div className='Question'>
+                    {questionAndAnswers.code &&
+                    <div>
+                        Look at the following code...
+                        <pre>
+                        <code>{questionAndAnswers.code}</code>
+                    </pre></div>
+                    }
+
                     <div className='QuestionText'>{questionAndAnswers.question}</div>
+
+
                     <List className='AnswerChoices'>
                         {answers.map((answer) => (
                             <ListItem key={answer.name} className='AnswerChoice RightAnswer' button

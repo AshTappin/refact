@@ -151,6 +151,12 @@ export class QuizStore {
                 {name: 'this.setState()', isCorrect: false},
                 {name: 'Hooks', isCorrect: true},
             ]
+        }, {
+            question: 'Component state can only be initialised in a constructor',
+            answers: [
+                {name: "true", isCorrect: false},
+                {name: "false", isCorrect: true}
+            ]
         }];
 
     public getFinalScore() {

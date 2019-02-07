@@ -27,14 +27,14 @@ Feature: Quiz
       | Question                                                                       | Answer                                                             |
       | What can you use to pass data into another component?                          | props                                                              |
       | All react components have to be classes.                                       | false                                                              |
-      | When the Greeting component is rendered, what is the outcome?                  | The component cannot render successfully                           |
       | What causes a react class component to re-render?                              | When the component's state changes                                 |
       | Is the setState() function synchronous or asynchronous?                        | Asynchronous                                                       |
-      | When the "Switch Language" button is clicked, what is the console output?      | rendering greeting\nrendering hello\ngreeting component did update |
       | React is not compatible with Typescript.                                       | false                                                              |
       | What can be used to modify state of a function component?                      | Hooks                                                              |
       | Component state can only be initialised in a constructor                       | false                                                              |
       | What react hook can be used to replicate the behaviour of componentDidMount()? | useEffect()                                                        |
+      | When the Greeting component is rendered, what is the outcome?                  | The component cannot render successfully                           |
+      | When the "Switch Language" button is clicked, what is the console output?      | rendering greeting\nrendering hello\ngreeting component did update |
     Then the final score page will say I scored '100%'
     And I can not see the quiz progress at the top
 
@@ -44,14 +44,14 @@ Feature: Quiz
       | Question                                                                       | Answer                                                                                                                                                          |
       | What can you use to pass data into another component?                          | state                                                                                                                                                           |
       | All react components have to be classes.                                       | true                                                                                                                                                            |
-      | When the Greeting component is rendered, what is the outcome?                  | "Hallo null" is displayed                                                                                                                                       |
       | What causes a react class component to re-render?                              | Only after a page refresh                                                                                                                                       |
       | Is the setState() function synchronous or asynchronous?                        | Synchronous                                                                                                                                                     |
-      | When the "Switch Language" button is clicked, what is the console output?      | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreeting component did update |
       | React is not compatible with Typescript.                                       | true                                                                                                                                                            |
       | What can be used to modify state of a function component?                      | this.setState()                                                                                                                                                 |
       | Component state can only be initialised in a constructor                       | true                                                                                                                                                            |
       | What react hook can be used to replicate the behaviour of componentDidMount()? | useSideEffect()                                                                                                                                                 |
+      | When the Greeting component is rendered, what is the outcome?                  | "Hallo null" is displayed                                                                                                                                       |
+      | When the "Switch Language" button is clicked, what is the console output?      | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreeting component did update |
     Then the final score page will say I scored '0%'
 
   Scenario: Get half answers correct and half wrong results in 50% score
@@ -60,14 +60,14 @@ Feature: Quiz
       | Question                                                                       | Answer                                                                                                                                                          |
       | What can you use to pass data into another component?                          | state                                                                                                                                                           |
       | All react components have to be classes.                                       | false                                                                                                                                                           |
-      | When the Greeting component is rendered, what is the outcome?                  | "Hallo null" is displayed                                                                                                                                       |
       | What causes a react class component to re-render?                              | Only after a page refresh                                                                                                                                       |
       | Is the setState() function synchronous or asynchronous?                        | Synchronous                                                                                                                                                     |
-      | When the "Switch Language" button is clicked, what is the console output?      | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreeting component did update |
       | React is not compatible with Typescript.                                       | false                                                                                                                                                           |
       | What can be used to modify state of a function component?                      | Hooks                                                                                                                                                           |
       | Component state can only be initialised in a constructor                       | false                                                                                                                                                           |
       | What react hook can be used to replicate the behaviour of componentDidMount()? | useEffect()                                                                                                                                                     |
+      | When the Greeting component is rendered, what is the outcome?                  | "Hallo null" is displayed                                                                                                                                       |
+      | When the "Switch Language" button is clicked, what is the console output?      | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreeting component did update |
     Then the final score page will say I scored '50%'
 
   Scenario: Cannot submit answer unless answer has been checked

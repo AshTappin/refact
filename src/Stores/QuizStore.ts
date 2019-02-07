@@ -26,6 +26,47 @@ export class QuizStore {
                 {name: 'false', isCorrect: true}
             ]
         }, {
+            question: "What causes a react class component to re-render?",
+            answers: [
+                {name: 'When any variable in the component changes', isCorrect: false},
+                {name: 'Only after a page refresh ', isCorrect: false},
+                {name: 'When the component\'s state changes', isCorrect: true},
+            ]
+        }, {
+            question: "Is the setState() function synchronous or asynchronous?",
+            answers: [
+                {name: 'Synchronous', isCorrect: false},
+                {name: 'Asynchronous', isCorrect: true},
+            ]
+        }, {
+            question: 'React is not compatible with Typescript.',
+            answers: [
+                {name: "true", isCorrect: false},
+                {name: "false", isCorrect: true}
+            ]
+        }, {
+            question: 'What can be used to modify state of a function component?',
+            answers: [
+                {name: 'You can\'t because function components are stateless', isCorrect: false},
+                {name: 'this.setState()', isCorrect: false},
+                {name: 'Hooks', isCorrect: true},
+            ]
+        }, {
+            question: 'Component state can only be initialised in a constructor',
+            answers: [
+                {name: "true", isCorrect: false},
+                {name: "false", isCorrect: true}
+            ]
+        }, {
+            question: 'What react hook can be used to replicate the behaviour of componentDidMount()?',
+            answers: [
+                {name: 'useSideEffect()', isCorrect: false},
+                {name: 'useEffect()', isCorrect: true},
+                {name: 'useComponentDidMount()', isCorrect: false},
+                {name: 'useLifecycle()', isCorrect: false},
+                {name: 'You cannot use react hooks to implement lifecycle behaviour', isCorrect: false}
+            ]
+        }, {
             question: 'When the Greeting component is rendered, what is the outcome?',
             code: "import React from \"react\";\n" +
                 "\n" +
@@ -61,19 +102,6 @@ export class QuizStore {
                 {name: '"Hallo null" is displayed', isCorrect: false},
                 {name: '"Hallo undefined" is displayed', isCorrect: false},
                 {name: 'The component cannot render successfully', isCorrect: true},
-            ]
-        }, {
-            question: "What causes a react class component to re-render?",
-            answers: [
-                {name: 'When any variable in the component changes', isCorrect: false},
-                {name: 'Only after a page refresh ', isCorrect: false},
-                {name: 'When the component\'s state changes', isCorrect: true},
-            ]
-        }, {
-            question: "Is the setState() function synchronous or asynchronous?",
-            answers: [
-                {name: 'Synchronous', isCorrect: false},
-                {name: 'Asynchronous', isCorrect: true},
             ]
         }, {
             question: "When the \"Switch Language\" button is clicked, what is the console output?",
@@ -137,34 +165,6 @@ export class QuizStore {
                     isCorrect: false
                 },
                 {name: "rendering greeting\nrendering hello", isCorrect: false}
-            ]
-        }, {
-            question: 'React is not compatible with Typescript.',
-            answers: [
-                {name: "true", isCorrect: false},
-                {name: "false", isCorrect: true}
-            ]
-        }, {
-            question: 'What can be used to modify state of a function component?',
-            answers: [
-                {name: 'You can\'t because function components are stateless', isCorrect: false},
-                {name: 'this.setState()', isCorrect: false},
-                {name: 'Hooks', isCorrect: true},
-            ]
-        }, {
-            question: 'Component state can only be initialised in a constructor',
-            answers: [
-                {name: "true", isCorrect: false},
-                {name: "false", isCorrect: true}
-            ]
-        }, {
-            question: 'What react hook can be used to replicate the behaviour of componentDidMount()?',
-            answers: [
-                {name: 'useSideEffect()', isCorrect: false},
-                {name: 'useEffect()', isCorrect: true},
-                {name: 'useComponentDidMount()', isCorrect: false},
-                {name: 'useLifecycle()', isCorrect: false},
-                {name: 'You cannot use react hooks to implement lifecycle behaviour', isCorrect: false}
             ]
         }];
 

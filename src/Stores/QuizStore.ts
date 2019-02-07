@@ -63,7 +63,7 @@ export class QuizStore {
                 {name: 'The component cannot render successfully', isCorrect: true},
             ]
         }, {
-            question: "What causes a react component to re-render?",
+            question: "What causes a react class component to re-render?",
             answers: [
                 {name: 'When any variable in the component changes', isCorrect: false},
                 {name: 'Only after a page refresh ', isCorrect: false},

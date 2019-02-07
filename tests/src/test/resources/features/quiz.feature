@@ -28,7 +28,7 @@ Feature: Quiz
       | What can you use to pass data into another component?                          | props                                                             |
       | All react components have to be classes.                                       | false                                                             |
       | When the Greeting component is rendered, what is the outcome?                  | The component cannot render successfully                          |
-      | What causes a react component to re-render?                                    | When the component's state changes                                |
+      | What causes a react class component to re-render?                              | When the component's state changes                                |
       | Is the setState() function synchronous or asynchronous?                        | Asynchronous                                                      |
       | When the "Switch Language" button is clicked, what is the console output?      | rendering greeting\nrendering hello\ngreetingcomponent did update |
       | React is not compatible with Typescript.                                       | false                                                             |
@@ -45,7 +45,7 @@ Feature: Quiz
       | What can you use to pass data into another component?                          | state                                                                                                                                                          |
       | All react components have to be classes.                                       | true                                                                                                                                                           |
       | When the Greeting component is rendered, what is the outcome?                  | "Hallo null" is displayed                                                                                                                                      |
-      | What causes a react component to re-render?                                    | Only after a page refresh                                                                                                                                      |
+      | What causes a react class component to re-render?                              | Only after a page refresh                                                                                                                                      |
       | Is the setState() function synchronous or asynchronous?                        | Synchronous                                                                                                                                                    |
       | When the "Switch Language" button is clicked, what is the console output?      | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update |
       | React is not compatible with Typescript.                                       | true                                                                                                                                                           |
@@ -61,7 +61,7 @@ Feature: Quiz
       | What can you use to pass data into another component?                          | state                                                                                                                                                          |
       | All react components have to be classes.                                       | false                                                                                                                                                          |
       | When the Greeting component is rendered, what is the outcome?                  | "Hallo null" is displayed                                                                                                                                      |
-      | What causes a react component to re-render?                                    | Only after a page refresh                                                                                                                                      |
+      | What causes a react class component to re-render?                              | Only after a page refresh                                                                                                                                      |
       | Is the setState() function synchronous or asynchronous?                        | Synchronous                                                                                                                                                    |
       | When the "Switch Language" button is clicked, what is the console output?      | Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update |
       | React is not compatible with Typescript.                                       | false                                                                                                                                                          |

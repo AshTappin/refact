@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import './Question.css';
 import { RouteComponentProps, withRouter } from 'react-router';
@@ -10,7 +9,8 @@ import { Answer } from '../../Interfaces/Answer';
 import { inject, Observer } from 'mobx-react';
 import { QuizStore } from '../../Stores/QuizStore';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomDark, dark } from 'react-syntax-highlighter/dist/styles/prism';
+import { atomDark } from 'react-syntax-highlighter/dist/styles/prism';
+import Radio from '@material-ui/core/Radio';
 
 interface QuestionProps extends RouteComponentProps {
     quizStore: QuizStore
@@ -48,7 +48,7 @@ const Question = (props: QuestionProps) => {
                             }}>
                                 <ListItemText primary={answer.name} style={{whiteSpace: 'pre-wrap'}}/>
                                 <ListItemSecondaryAction>
-                                    <Checkbox
+                                    <Radio
                                         disabled={questionAnswered}
                                         onChange={() => {
                                             setCheckedAnswer(answer);

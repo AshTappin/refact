@@ -127,13 +127,13 @@ export class QuizStore {
                 "\n" +
                 "export default Greeting;",
             answers: [
-                {name: "rendering greeting\nrendering hello\ngreetingcomponent did update", isCorrect: true},
+                {name: "rendering greeting\nrendering hello\ngreeting component did update", isCorrect: true},
                 {
-                    name: "Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreetingcomponent did update",
+                    name: "Constructing Greeting component\nrendering greeting\nConstructing Hello component\nrendering hello\ngreeting component did mount\ngreeting component did update",
                     isCorrect: false
                 },
                 {
-                    name: "rendering greeting\nrendering hello\ngreeting component did mount\ngreetingcomponent did update",
+                    name: "rendering greeting\nrendering hello\ngreeting component did mount\ngreeting component did update",
                     isCorrect: false
                 },
                 {name: "rendering greeting\nrendering hello", isCorrect: false}

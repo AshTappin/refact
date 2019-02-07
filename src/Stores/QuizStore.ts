@@ -157,6 +157,15 @@ export class QuizStore {
                 {name: "true", isCorrect: false},
                 {name: "false", isCorrect: true}
             ]
+        }, {
+            question: 'What react hook can be used to replicate the behaviour of componentDidMount()?',
+            answers: [
+                {name: 'useSideEffect()', isCorrect: false},
+                {name: 'useEffect()', isCorrect: true},
+                {name: 'useComponentDidMount()', isCorrect: false},
+                {name: 'useLifecycle()', isCorrect: false},
+                {name: 'You cannot use react hooks to implement lifecycle behaviour', isCorrect: false}
+            ]
         }];
 
     public getFinalScore() {

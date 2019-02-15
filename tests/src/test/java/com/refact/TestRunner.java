@@ -1,4 +1,4 @@
-package com.bandalyser;
+package com.refact;
 
 import org.junit.runner.RunWith;
 

@@ -2,12 +2,14 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 import NotFound from "../components/NotFound/NotFound";
 import MultipleChoiceQuestion from "../components/MultipleChoiceQuestion/MultipleChoiceQuestion";
+import {Paper} from "@material-ui/core";
 
 storiesOf('not found page', module)
     .addWithJSX('not found page', () => <NotFound/>);
 
 
 storiesOf('Multiple choice question', module)
+    .addDecorator(story => <Paper elevation={1}> {story()}</Paper>)
     .add('Unanswered multiple choice question', () => {
 
         return (

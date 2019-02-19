@@ -34,7 +34,7 @@ const Home = (props: any) => {
         }
         </Observer>
     );
-}
+};
 
 export default inject('quizStore')(withStyles(styles)(withRouter(Home)));
   

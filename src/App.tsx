@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Question from './components/Question/Question';
 import NotFound from './components/NotFound/NotFound';
 import logo from './logo.svg';
-import { Paper } from '@material-ui/core';
+import {Paper} from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 import FinalScore from './components/FinalScore/FinalScore';
 import QuizProgress from './components/QuizProgress/QuizProgress';
-import { inject } from 'mobx-react';
+import {inject} from 'mobx-react';
 
 const styles = (theme: any) => ({
     root: {
@@ -46,4 +46,4 @@ const App = (props: any) => {
 };
 
 
-export default inject('quizStore')(withStyles(styles)(App));
+export default withStyles(styles)(App);

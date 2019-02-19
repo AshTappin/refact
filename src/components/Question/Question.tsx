@@ -11,6 +11,7 @@ import { QuizStore } from '../../Stores/QuizStore';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/styles/prism';
 import Radio from '@material-ui/core/Radio';
+import MultipleChoiceQuestion from "../MultipleChoiceQuestion/MultipleChoiceQuestion";
 
 interface QuestionProps extends RouteComponentProps {
     quizStore: QuizStore
@@ -18,15 +19,15 @@ interface QuestionProps extends RouteComponentProps {
 
 const Question = (props: QuestionProps) => {
 
-    const [checkedAnswer, setCheckedAnswer] = useState({} as Answer);
+    const [checkedAnswer, setCheckedAnswer] = useState<Answer>({} as Answer);
     const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(false);
+    const [answerSelected, setAnswerSelected] = useState(false);
 
     return (
         <Observer>{() => {
             const {quizStore} = props;
             const questionAndAnswers = props.quizStore.getCurrentQuestion();
-            const answers = questionAndAnswers.answers;
 
             return (
                 <div className='Question'>
@@ -37,26 +38,11 @@ const Question = (props: QuestionProps) => {
                     </div>
                     }
 
-                    <div className='QuestionText'>{questionAndAnswers.question}</div>
-
-
-                    <List className='AnswerChoices'>
-                        {answers.map((answer) => (
-                            <ListItem key={answer.name} className='AnswerChoice RightAnswer' button
-                                      disabled={questionAnswered} onClick={() => {
-                                setCheckedAnswer(answer);
-                            }}>
-                                <ListItemText primary={answer.name} style={{whiteSpace: 'pre-wrap'}}/>
-                                <ListItemSecondaryAction>
-                                    <Radio
-                                        disabled={questionAnswered}
-                                        onChange={() => {
-                                            setCheckedAnswer(answer);
-                                        }}
-                                        checked={checkedAnswer.name === answer.name}/>
-                                </ListItemSecondaryAction>
-                            </ListItem>))}
-                    </List>
+                    <MultipleChoiceQuestion
+                        questionAndAnswers={questionAndAnswers}
+                        setCheckedAnswer={setCheckedAnswer}
+                        checkedAnswer={checkedAnswer}
+                    />
 
                     <div className='QuestionFooter'>
                         {questionAnsweredCorrectly &&

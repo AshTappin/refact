@@ -3,6 +3,7 @@ import {storiesOf} from '@storybook/react';
 import NotFound from "../components/NotFound/NotFound";
 import MultipleChoiceQuestion from "../components/MultipleChoiceQuestion/MultipleChoiceQuestion";
 import {Paper} from "@material-ui/core";
+import {CodeDisplay} from "../components/CodeDisplay/CodeDisplay";
 
 storiesOf('not found page', module)
     .addWithJSX('not found page', () => <NotFound/>);
@@ -75,3 +76,38 @@ storiesOf('Multiple choice question', module)
             questionAnswered={true}
             setCheckedAnswer={console.log('Selected on check')}
         />);
+
+storiesOf('Code display', module)
+    .add('Code displayed in syntaxhighter', () => {
+            const code = "import React from \"react\";\n" +
+                "\n" +
+                "class Greeting extends React.Component {\n" +
+                "    componentDidMount() {\n" +
+                "        this.setState({user: 'Spock'});\n" +
+                "    }\n" +
+                "\n" +
+                "    render() {\n" +
+                "        return (\n" +
+                "            <div>\n" +
+                "                <Hello inGerman={true}/>\n" +
+                "            </div>);\n" +
+                "    }\n" +
+                "}\n" +
+                "\n" +
+                "class Hello extends React.Component {\n" +
+                "    render() {\n" +
+                "        return (\n" +
+                "            <div>\n" +
+                "                {this.props.inGerman " +
+                "\n                  ? `Hallo ${this.state.user}` " +
+                "\n                  : `Hello ${this.state.user}`}\n" +
+                "            </div>);\n" +
+                "    }\n" +
+                "}\n" +
+                "\n" +
+                "\n" +
+                "export default Greeting;";
+
+            return <CodeDisplay code={code}/>
+        }
+    );

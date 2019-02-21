@@ -9,7 +9,6 @@ import {Paper} from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 import FinalScore from './components/FinalScore/FinalScore';
 import QuizProgress from './components/QuizProgress/QuizProgress';
-import {inject} from 'mobx-react';
 
 const styles = (theme: any) => ({
     root: {
@@ -24,6 +23,7 @@ const styles = (theme: any) => ({
 });
 
 const App = (props: any) => {
+
     return (
         <BrowserRouter>
             <div className="App">

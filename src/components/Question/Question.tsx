@@ -1,20 +1,15 @@
 import * as React from 'react';
-import {ReactChildren, ReactNode, useState} from 'react';
+import {FunctionComponent, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import './Question.css';
 import {RouteComponentProps, withRouter} from 'react-router';
 import {Answer} from '../../Interfaces/Answer';
 import {inject, Observer} from 'mobx-react';
 import {QuizStore} from '../../Stores/QuizStore';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import {atomDark} from 'react-syntax-highlighter/dist/styles/prism';
 import MultipleChoiceQuestion from "../MultipleChoiceQuestion/MultipleChoiceQuestion";
+import {CodeDisplay} from "../CodeDisplay/CodeDisplay";
 
-interface QuestionProps extends RouteComponentProps {
-    quizStore: QuizStore
-}
-
-const Question = (props: QuestionProps) => {
+const Question: FunctionComponent<RouteComponentProps & { quizStore: QuizStore }> = (props) => {
 
     const [checkedAnswer, setCheckedAnswer] = useState<Answer>({} as Answer);
     const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);
@@ -27,13 +22,7 @@ const Question = (props: QuestionProps) => {
 
             return (
                 <div className='Question'>
-                    {questionAndAnswers.code &&
-                    <div>
-                        Look at the following code...
-                        <SyntaxHighlighter language='jsx' showLineNumbers
-                                           style={atomDark}>{questionAndAnswers.code}</SyntaxHighlighter>
-                    </div>
-                    }
+                    {questionAndAnswers.code && <CodeDisplay code={questionAndAnswers.code}/>}
 
                     <MultipleChoiceQuestion
                         questionAndAnswers={questionAndAnswers}

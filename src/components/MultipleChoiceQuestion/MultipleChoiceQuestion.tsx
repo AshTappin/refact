@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {QuestionAndAnswers} from "../../Interfaces/QuestionAndAnswers";
 import {List, ListItem, ListItemText} from "@material-ui/core";
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';

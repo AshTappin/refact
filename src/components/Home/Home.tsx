@@ -1,22 +1,12 @@
 import * as React from 'react';
-import { Button } from '@material-ui/core';
-import { withRouter } from 'react-router';
-import withStyles from '@material-ui/core/styles/withStyles';
-import { inject, Observer } from 'mobx-react';
-
-const styles = (theme: any) => ({
-    root: {
-        ...theme.mixins.gutters(),
-        paddingBottom: theme.spacing.unit * 2,
-        marginTop: 30,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        maxWidth: 600
-    },
-});
+import {Button} from '@material-ui/core';
+import {inject, Observer} from 'mobx-react';
+import useRouter from "use-react-router/use-react-router";
 
 const Home = (props: any) => {
+
+    const {history} = useRouter();
+
     return (
         <Observer>{() =>(
             <div>
@@ -26,8 +16,7 @@ const Home = (props: any) => {
                     color='primary'
                     onClick={() => {
                         props.quizStore.setQuizInProgress(true);
-                        props.history.push('/question');
-
+                        history.push('/question');
                     }}
                 >Test your React Knowledge</Button>
             </div>)
@@ -36,5 +25,5 @@ const Home = (props: any) => {
     );
 };
 
-export default inject('quizStore')(withStyles(styles)(withRouter(Home)));
+export default inject('quizStore')(Home);
   

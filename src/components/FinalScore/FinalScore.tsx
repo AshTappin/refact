@@ -1,15 +1,17 @@
 import React from 'react';
 import './FinalScore.css'
-import { Button } from '@material-ui/core';
-import { RouteComponentProps, withRouter } from 'react-router';
-import { inject, Observer } from 'mobx-react';
-import { QuizStore } from '../../Stores/QuizStore';
+import {Button} from '@material-ui/core';
+import {RouteComponentProps} from 'react-router';
+import {inject, Observer} from 'mobx-react';
+import {QuizStore} from '../../Stores/QuizStore';
+import useRouter from "use-react-router/use-react-router";
 
 interface FinalScoreProps extends RouteComponentProps {
     quizStore: QuizStore
 }
 
 const FinalScore = (props: FinalScoreProps) => {
+    const {history} = useRouter();
     return (
         <Observer>{() => (
             <div>
@@ -23,7 +25,7 @@ const FinalScore = (props: FinalScoreProps) => {
                     onClick={() => {
                         props.quizStore.resetQuiz();
                         props.quizStore.setQuizInProgress(true);
-                        props.history.push('/question');
+                        history.push('/question');
                     }}
                 >Take Test Again</Button>
             </div>)
@@ -32,5 +34,5 @@ const FinalScore = (props: FinalScoreProps) => {
     );
 };
 
-export default inject("quizStore")(withRouter(FinalScore));
+export default inject("quizStore")(FinalScore);
   

@@ -10,6 +10,7 @@ export const CodeDisplay = (props) => {
     const styleClasses = useStyles();
     return (
         <Paper className={styleClasses.root} elevation={1}>
+            Look at the following code...
             <SyntaxHighlighter language='jsx' showLineNumbers
                                style={atomDark}>{props.code} </SyntaxHighlighter>
         </Paper>

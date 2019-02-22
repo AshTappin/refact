@@ -16,6 +16,7 @@ const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
     const [questionAnswered, setQuestionAnswered] = useState(false);
     const {history} = useRouter();
 
+
     return (
         <Observer>{() => {
             const {quizStore} = props;
@@ -44,14 +45,11 @@ const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
                             disabled={Object.keys(checkedAnswer).length === 0}
                             onClick={() => {
                                 if (quizStore.isAtEndOfQuiz()) {
-                                    props.quizStore.setQuizInProgress(false);
-                                    history.push('/finalScore');
+                                    finishQuiz(props.quizStore);
                                 } else {
                                     quizStore.incrementCurrentQuestion();
-                                    setQuestionAnsweredCorrectly(false);
-                                    setQuestionAnswered(false);
                                 }
-                                setCheckedAnswer({} as Answer);
+                                resetState();
                             }}
                         /> : <SubmitAnswerButton
                             quizStore={props.quizStore}
@@ -73,15 +71,26 @@ const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
 
         </Observer>
     );
+
+    function finishQuiz(quizStore: QuizStore) {
+        quizStore.setQuizInProgress(false);
+        history.push('/finalScore');
+    }
+
+    function resetState() {
+        setQuestionAnsweredCorrectly(false);
+        setQuestionAnswered(false);
+        setCheckedAnswer({} as Answer);
+    }
+
 };
 
-type QuizButtonProps = {
+
+const QuizButton: FunctionComponent<{
     children: string,
     disabled?: boolean,
     onClick(): void
-}
-
-const QuizButton = (props: QuizButtonProps) =>
+}> = (props) =>
     <Button
         className='SubmitAnswerButton'
         disabled={props.disabled}

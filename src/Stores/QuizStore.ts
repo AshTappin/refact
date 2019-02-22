@@ -196,6 +196,4 @@ export class QuizStore {
     public setQuizInProgress(isInProgress: boolean) {
         this.quizInProgress = isInProgress;
     }
-
-
 }

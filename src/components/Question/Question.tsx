@@ -2,18 +2,19 @@ import * as React from 'react';
 import {FunctionComponent, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import './Question.css';
-import {RouteComponentProps, withRouter} from 'react-router';
 import {Answer} from '../../Interfaces/Answer';
 import {inject, Observer} from 'mobx-react';
 import {QuizStore} from '../../Stores/QuizStore';
 import MultipleChoiceQuestion from "../MultipleChoiceQuestion/MultipleChoiceQuestion";
 import {CodeDisplay} from "../CodeDisplay/CodeDisplay";
+import useRouter from "use-react-router/use-react-router";
 
-const Question: FunctionComponent<RouteComponentProps & { quizStore: QuizStore }> = (props) => {
+const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
 
     const [checkedAnswer, setCheckedAnswer] = useState<Answer>({} as Answer);
     const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(false);
+    const {history} = useRouter();
 
     return (
         <Observer>{() => {
@@ -44,7 +45,7 @@ const Question: FunctionComponent<RouteComponentProps & { quizStore: QuizStore }
                             onClick={() => {
                                 if (quizStore.isAtEndOfQuiz()) {
                                     props.quizStore.setQuizInProgress(false);
-                                    props.history.push('/finalScore');
+                                    history.push('/finalScore');
                                 } else {
                                     quizStore.incrementCurrentQuestion();
                                     setQuestionAnsweredCorrectly(false);
@@ -102,4 +103,4 @@ const NextButton = (props: NextQuestionButtonProps) =>
 const SubmitAnswerButton = (props: NextQuestionButtonProps) =>
     <QuizButton onClick={props.onClick} disabled={props.disabled}>Submit Answer</QuizButton>;
 
-export default inject("quizStore")(withRouter(Question));
+export default inject("quizStore")(Question);

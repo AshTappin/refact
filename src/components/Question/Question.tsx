@@ -19,7 +19,7 @@ const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
     return (
         <Observer>{() => {
             const {quizStore} = props;
-            const questionAndAnswers = props.quizStore.getCurrentQuestion();
+            const questionAndAnswers = props.quizStore.currentQuestion;
 
             return (
                 <div className='Question'>

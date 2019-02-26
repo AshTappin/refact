@@ -1,5 +1,5 @@
-import { observable } from 'mobx';
-import { QuestionAndAnswers } from '../Interfaces/QuestionAndAnswers';
+import {autorun, computed, observable} from 'mobx';
+import {QuestionAndAnswers} from '../Interfaces/QuestionAndAnswers';
 
 export class QuizStore {
     @observable
@@ -168,7 +168,14 @@ export class QuizStore {
             ]
         }];
 
-    public getFinalScore() {
+    constructor() {
+        autorun( reaction => {
+            console.log('autorun', reaction);
+        });
+    }
+
+    @computed get finalScore() {
+        console.log('computing final score');
         return (this.numberOfRightAnswers / this.questionsAndAnswers.length) * 100;
     }
 
@@ -181,7 +188,7 @@ export class QuizStore {
         this.currentQuestionIndex = 0;
     }
 
-    public getCurrentQuestion() {
+    @computed get currentQuestion() {
         return this.questionsAndAnswers[this.currentQuestionIndex];
     }
 
@@ -190,6 +197,7 @@ export class QuizStore {
     }
 
     public isAtEndOfQuiz(): boolean {
+
         return (this.currentQuestionIndex + 1) === this.questionsAndAnswers.length
     }
 

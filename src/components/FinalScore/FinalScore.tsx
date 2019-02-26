@@ -16,7 +16,7 @@ const FinalScore = (props: FinalScoreProps) => {
         <Observer>{() => (
             <div>
                 <div>You scored:
-                    <div className='FinalScoreText'>{props.quizStore.getFinalScore()}%</div>
+                    <div className='FinalScoreText'>{props.quizStore.finalScore}%</div>
                 </div>
                 <Button
                     style={{marginTop: 10}}

@@ -29,7 +29,6 @@ public class Hooks {
         Configuration.browserSize = "1024x768";
         WebDriverRunner.getWebDriver().manage().window().setPosition(new Point(60, 80));
 
-//        SelenideWidget.setDemoMode(true);
     }
 
     @After(order = 100)

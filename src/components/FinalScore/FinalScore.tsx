@@ -1,12 +1,11 @@
 import React from 'react';
 import './FinalScore.css'
 import {Button} from '@material-ui/core';
-import {RouteComponentProps} from 'react-router';
 import {inject, Observer} from 'mobx-react';
 import {QuizStore} from '../../Stores/QuizStore';
 import useRouter from "use-react-router/use-react-router";
 
-interface FinalScoreProps extends RouteComponentProps {
+interface FinalScoreProps  {
     quizStore: QuizStore
 }
 
@@ -16,7 +15,7 @@ const FinalScore = (props: FinalScoreProps) => {
         <Observer>{() => (
             <div>
                 <div>You scored:
-                    <div className='FinalScoreText'>{props.quizStore.finalScore}%</div>
+                    <div className='FinalScoreText' data-testid='FinalScoreText'>{props.quizStore.finalScore}%</div>
                 </div>
                 <Button
                     style={{marginTop: 10}}

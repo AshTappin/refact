@@ -12,4 +12,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'center',
         maxWidth: 600
     },
-}), {defaultTheme: createMuiTheme()} as any);
+}), {defaultTheme: createMuiTheme({
+        typography: {
+            useNextVariants: true
+        }
+    })} as any);

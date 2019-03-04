@@ -1,5 +1,6 @@
 import {autorun, computed, observable} from 'mobx';
 import {QuestionAndAnswers} from '../Interfaces/QuestionAndAnswers';
+import {sessionStored} from "mobx-stored";
 
 export class QuizStore {
     @observable
@@ -8,8 +9,7 @@ export class QuizStore {
     @observable
     currentQuestionIndex: number = 0;
 
-    @observable
-    quizInProgress: boolean = false;
+    sessionStoredQuizState: {isInProgress: boolean} = sessionStored('quiz', {isInProgress: false});
 
     questionsAndAnswers: QuestionAndAnswers[] = [
         {
@@ -197,11 +197,10 @@ export class QuizStore {
     }
 
     public isAtEndOfQuiz(): boolean {
-
         return (this.currentQuestionIndex + 1) === this.questionsAndAnswers.length
     }
 
     public setQuizInProgress(isInProgress: boolean) {
-        this.quizInProgress = isInProgress;
+        this.sessionStoredQuizState.isInProgress = isInProgress;
     }
 }

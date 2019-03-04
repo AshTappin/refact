@@ -9,7 +9,7 @@ interface QuizProgressProps {
 const QuizProgress = (props: QuizProgressProps) => {
     const {quizStore} = props;
     return <Observer>{() =>
-        quizStore!.quizInProgress ?
+        quizStore!.sessionStoredQuizState.isInProgress?
             <div className='QuestionProgressText'>
                 <b>{quizStore!.currentQuestionIndex + 1}</b> of <b>{quizStore!.questionsAndAnswers.length}</b> questions
             </div>

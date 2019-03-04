@@ -17,6 +17,7 @@
     "@types/react-syntax-highlighter": "^10.1.0",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
+    "mobx-stored": "^1.1.0",
     "prop-types": "^15.7.2",
     "react": "16.8.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",

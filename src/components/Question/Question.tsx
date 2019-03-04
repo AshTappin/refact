@@ -33,7 +33,7 @@ const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
 
                     <div className='QuestionFooter'>
                         {questionAnsweredCorrectly &&
-                        <div className='Success Notification'>Correct! <i className="material-icons">check_circle</i>
+                        <div className='Success Notification' data-testid="CorrectAnswerNotification">Correct! <i className="material-icons">check_circle</i>
                         </div>}
                         {(questionAnswered && !questionAnsweredCorrectly) &&
                         <div className='Incorrect Notification'>Incorrect! <i className="material-icons">cancel</i>

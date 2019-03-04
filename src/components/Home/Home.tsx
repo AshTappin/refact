@@ -12,6 +12,7 @@ const Home = (props: any) => {
             <div>
                 <Button
                     className='TakeQuizButton'
+                    data-testid='TakeQuizButton'
                     variant='contained'
                     color='primary'
                     onClick={() => {

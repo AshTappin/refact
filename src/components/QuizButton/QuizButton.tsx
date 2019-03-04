@@ -28,6 +28,7 @@ const NextButton: FunctionComponent<QuizButtonProps> = (props) =>
 const SubmitAnswerButton: FunctionComponent<QuizButtonProps> = (props) =>
     <Button
         className='SubmitAnswerButton'
+        data-testid='SubmitAnswerButton'
         disabled={props.disabled}
         variant='contained'
         color='primary'

@@ -17,7 +17,7 @@ const MultipleChoiceQuestion = (props: MultipleChoiceQuestionProps) => {
 
     return (
         <div className='MultipleChoiceQuestion'>
-            <div className='QuestionText'>{questionAndAnswers.question}</div>
+            <div className='QuestionText' data-testid="QuestionText">{questionAndAnswers.question}</div>
             <List className='AnswerChoices'>
                 {questionAndAnswers.answers.map((answer) => (
                     <ListItem key={answer.name} className='AnswerChoice RightAnswer' button

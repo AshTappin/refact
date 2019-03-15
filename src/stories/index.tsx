@@ -1,12 +1,9 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
-import NotFound from "../components/NotFound/NotFound";
 import MultipleChoiceQuestion from "../components/MultipleChoiceQuestion/MultipleChoiceQuestion";
 import {Paper} from "@material-ui/core";
 import {CodeDisplay} from "../components/CodeDisplay/CodeDisplay";
-
-storiesOf('not found page', module)
-    .addWithJSX('not found page', () => <NotFound/>);
+import {Answer} from "../Interfaces/Answer";
 
 
 storiesOf('Multiple choice question', module)
@@ -74,7 +71,7 @@ storiesOf('Multiple choice question', module)
                 isCorrect: true
             }}
             questionAnswered={true}
-            setCheckedAnswer={console.log('Selected on check')}
+            setCheckedAnswer={(answer:Answer) => console.log('Selected on check')}
         />);
 
 storiesOf('Code display', module)

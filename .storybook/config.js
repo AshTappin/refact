@@ -1,11 +1,8 @@
-import {configure, setAddon} from "@storybook/react";
-import JSXAddon from 'storybook-addon-jsx';
-
+import {configure} from "@storybook/react";
 import '../src/index.css';
 
-setAddon(JSXAddon);
 function loadStories() {
-    require('../src/stories/index.js');
+    require('../src/stories/index.tsx');
 }
 
 configure(loadStories, module);

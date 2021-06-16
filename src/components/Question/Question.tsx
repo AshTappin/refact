@@ -8,8 +8,9 @@ import MultipleChoiceQuestion from "../MultipleChoiceQuestion/MultipleChoiceQues
 import {CodeDisplay} from "../CodeDisplay/CodeDisplay";
 import useRouter from "use-react-router/use-react-router";
 import QuizButton from "../QuizButton/QuizButton";
+import {RouteComponentProps} from "react-router";
 
-const Question: FunctionComponent<{ quizStore: QuizStore }> = (props) => {
+const Question: FunctionComponent<{ quizStore: QuizStore } & RouteComponentProps> = (props) => {
 
     const [checkedAnswer, setCheckedAnswer] = useState<Answer>({} as Answer);
     const [questionAnsweredCorrectly, setQuestionAnsweredCorrectly] = useState(false);

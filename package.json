@@ -55,7 +55,8 @@
     "@storybook/react": "5.1.11",
     "storybook-addon-jsx": "^7.3.10",
     "@types/storybook__react": "^4.0.2",
-    "webpack": "4.44.2"
+    "webpack": "4.44.2",
+    "normalize-url": ">=4.5.1"
   },
   "crcf": [
     "typescript",
